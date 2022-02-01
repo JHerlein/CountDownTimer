@@ -3,7 +3,9 @@ const hoursEl = document.getElementById('hours');
 const minsEl = document.getElementById('minutes');
 const secondsEl = document.getElementById('seconds');
 
-const newYears = "23 Mar 2022";
+
+const currentYear = new Date().getFullYear();
+const newYears = `1 Jan ${currentYear+1}`;
 
 function countDown(){
     const newYearsDate = new Date(newYears);
@@ -13,13 +15,13 @@ function countDown(){
     const hours = Math.floor(totalSeconds / 3600) % 24;
     const minutes = Math.floor(totalSeconds / 60) % 60;
     const seconds = Math.floor(totalSeconds) % 60;
-
     daysEl.innerHTML = days;
     hoursEl.innerHTML = hours;
     minsEl.innerHTML = minutes;
     secondsEl.innerHTML = seconds; 
     console.log(days,hours,minutes,seconds);
-}
+};
+
 //initual call
 setInterval(countDown,1000);
 
